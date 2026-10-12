@@ -4,24 +4,31 @@ A clean, single-file revision register for exam prep (1-3-7-15-30 day spaced rep
 
 ## Put it online (GitHub Pages)
 1. Create a free GitHub account, then **New repository** → name it `recapitulate` → **Public** → Create.
-2. Click **uploading an existing file**, drag in `index.html` (replace the old one if it exists), then **Commit changes**.
+2. Click **uploading an existing file**, drag in ALL of these files: `index.html`, `sw.js`, `manifest.webmanifest`, `icon-192.png`, `icon-512.png` (replace old ones if they exist), then **Commit changes**.
 3. **Settings → Pages** → Source: *Deploy from a branch* → Branch `main`, folder `/ (root)` → Save.
 4. After 1-2 minutes the site is live at `https://YOUR-USERNAME.github.io/recapitulate/`.
 
 If you set up Firebase/Google sign-in earlier, you can delete that Firebase project; this version does not use it.
 
 ## Your data
-Entries live in the browser you use. Clearing browser data, using a private window or switching device will not carry them over, so use the 💾 button (bottom-right) to **Export backup** now and then, and **Import backup** on any device to restore. Importing only adds missing entries.
+Entries live in the browser you use. Clearing browser data, using a private window or switching device will not carry them over, so use **Export backup** now and then (on computers the 💾 button at the bottom-right, on phones Settings ⚙️ → Backup & Restore), and **Import backup** on any device to restore. Importing only adds missing entries.
 
 ## Features
 - Today, Register and + New tabs; due/overdue counters; search and filters
-- Subject dropdown (edit the list in Settings), edit, and delete with a warning pop-up and a 6-second Undo
+- Subject dropdown (edit the list in Settings), a ⋮ menu on each card (Edit / Delete), delete with a warning pop-up and a 6-second Undo
 - Duplicate protection: the same subject + sub-topics can't be created twice
 - Red "Completed" cards after all 5 checkpoints are ticked or 30 days have passed
 - Session button creates a ready prompt for the Feynman check, traps, micro-quiz and Hindi mnemonic
 - Settings (⚙️): theme (auto/light/dark), accent colour, animations on/off, show/hide completed, sort order, manage subjects, backup, delete all data
-- Memory boosters (toggles in Settings): active recall first with a 2-minute timer, Feynman check, why/how questions, traps & errors, interleaved quiz, Hindi mnemonics, memory palace, self-rating after each revision (weak topics return the next day), and a daily memory tip
-- Works on phones, tablets and desktops
+- Memory boosters (toggles in Settings): active recall first with a 2-minute timer, Feynman check, why/how questions, Hindi mnemonics, memory palace, and self-rating after each revision (weak topics return the next day). Traps & common errors and the interleaved quiz are always included in Session prompts
+- Works on phones, tablets and desktops. On phones the tabs sit in a bottom bar (Today | New | Register) and you can swipe left/right to change tabs; on larger screens the tabs are at the top
 
 ## Share with a friend
 Send them the link. Everyone's register is stored in their own browser and is never shared.
+
+## Notifications
+- **Bell (top-left):** shows what needs revising right now (due today, overdue, weak spots). Tap an item to jump to its card.
+- **Daily reminder (Settings → Notifications):** turn it on, allow notifications when your browser asks, and pick a time. A notification appears at that time if anything is due.
+- **Honest limit:** a website can't wake a closed phone browser by itself. Reminders show while the app is open or running in the background (an installed app on Android works best). For alerts that work even when the app is closed, use **Add to calendar (.ics)** in the same section; it adds each upcoming revision to your phone calendar with an alarm.
+- **Install on your phone:** Android Chrome: menu → *Install app* / *Add to Home screen*. iPhone: Safari → Share → *Add to Home Screen* (needed before iPhone allows web notifications).
+- Also: the tab title and app icon show the due count, and a short summary appears the first time you open the app each day.
