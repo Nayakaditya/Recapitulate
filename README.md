@@ -17,6 +17,10 @@ Entries live in the browser you use. Clearing browser data, using a private wind
 - Today, Register and + New tabs; due/overdue counters; search and filters
 - Subject dropdown (edit the list in Settings), a ⋮ menu on each card (Edit / Delete), delete with a warning pop-up and a 6-second Undo
 - Duplicate protection: the same subject + sub-topics can't be created twice
+- Register tab = folders: each subject is a folder tile (coloured, with a register count, due badge and progress bar). Double-click a folder on a computer, or tap it on a phone, to open the registers inside. Use ← or your phone's Back button to return. The search box searches every folder; a filter icon next to it filters by status (All / Active / Completed)
+- Sticky notes: ⋮ menu → Add note. Pick one of 8 paper styles (post-it, lined, grid, kraft, pinned...). A small note icon appears on the card; tap it to pop the note up, and tap anywhere to close it. Notes are included in backups
+- Each subject gets its own colour on top of its cards (change it in Settings → Subjects)
+- A checkpoint (+3d, +7d, ...) is locked until its day arrives, so you can't tick revisions early
 - Red "Completed" cards after all 5 checkpoints are ticked or 30 days have passed
 - Session button creates a ready prompt for the Feynman check, traps, micro-quiz and Hindi mnemonic
 - Settings (⚙️): theme (auto/light/dark), accent colour, animations on/off, show/hide completed, sort order, manage subjects, backup, delete all data
