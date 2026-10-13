@@ -8,7 +8,7 @@
 <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <title>Recapitulate – Revision Register</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Gelasio:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Gelasio:wght@700&family=Caveat:wght@600&display=swap">
 <style>
 :root{--bg:#f6f4ee;--card:#fff;--ink:#1f2328;--mute:#6b7076;--line:#e6e1d4;--acc:#2a5bd7;--ok:#1f8a4c;--warn:#c2410c;--hl:#fff3b0;--finbg:#fdeaea;--red:#c0262d;--wh:#1f2328;--sh:0 6px 20px rgba(0,0,0,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 :root[data-theme="dark"]{--bg:#14151a;--card:#1e2027;--ink:#ecebe6;--mute:#9a9ca3;--line:#32343c;--acc:#5b87f5;--ok:#4cc27f;--warn:#ff9a62;--hl:#4a4217;--finbg:#3a1d20;--wh:#fff;--sh:0 6px 20px rgba(0,0,0,.35)}
@@ -124,7 +124,7 @@ details{margin-top:12px}summary{cursor:pointer;color:var(--acc);font-size:14px}.
 .menu.up{--dy:8px;top:auto;bottom:calc(100% + 8px);transform-origin:bottom right}
 .menu.out{animation:mo .14s ease-in forwards}
 .menu button{display:flex;align-items:center;gap:12px;width:100%;background:transparent;color:var(--ink);text-align:left;padding:11px 12px;border-radius:11px;font-weight:600;white-space:nowrap;transform:none!important;box-shadow:none!important;animation:mi .26s cubic-bezier(.2,.9,.25,1) both}
-.menu button:nth-of-type(1){animation-delay:.04s}.menu button:nth-of-type(2){animation-delay:.08s}
+.menu button:nth-of-type(1){animation-delay:.04s}.menu button:nth-of-type(2){animation-delay:.08s}.menu button:nth-of-type(3){animation-delay:.12s}
 .menu button:hover,.menu button:focus-visible{background:color-mix(in srgb,var(--acc) 11%,transparent);outline:none}
 .menu button.dg{color:var(--red)}.menu button.dg:hover,.menu button.dg:focus-visible{background:color-mix(in srgb,var(--red) 11%,transparent)}
 .menu .ico{width:20px;height:20px}.menu .sep{height:1px;background:var(--line);margin:4px 8px}
@@ -182,6 +182,88 @@ main{touch-action:pan-y pinch-zoom;overflow-x:clip}
 .flash{animation:fl 1.5s ease}@keyframes fl{30%{box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 45%,transparent)}}
 .tg input.tinp{-webkit-appearance:auto;appearance:auto;width:auto;height:auto;flex:none;padding:7px 9px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:15px;margin:0}
 .tg input.tinp::after{content:none}
+.card[style*="--sc"]{border-top:4px solid var(--sc);background-image:linear-gradient(180deg,color-mix(in srgb,var(--sc) 10%,transparent),transparent 72px)}
+.step input[type=checkbox].lk{background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239a9ca3' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='9' rx='2'/%3E%3Cpath d='M8 11V8a4 4 0 0 1 8 0v3'/%3E%3C/svg%3E") center/17px no-repeat;border-style:dashed;border-color:var(--mute);opacity:.75;box-shadow:none;cursor:not-allowed}
+.step input[type=checkbox].lk:hover{transform:none}
+.step.lkr>span{color:var(--mute)}
+.cd{position:relative;display:inline-block;width:16px;height:16px;flex:none;border-radius:50%;cursor:pointer;margin:0;box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--line)}
+.cd input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;opacity:0;cursor:pointer}
+.pl span{padding-left:8px;gap:7px}
+
+.sbar{display:flex;gap:8px;align-items:flex-start}.sbar .srch{flex:1;min-width:0}
+.fbtn{position:relative;width:46px;height:46px;flex:none;border-radius:12px;margin-bottom:10px}
+.fbtn.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card));color:var(--acc)}
+#fb{display:none;position:absolute;top:3px;right:3px;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:var(--acc);color:#fff;font:700 10px/16px system-ui,sans-serif;font-style:normal;text-align:center;pointer-events:none}
+.afl{display:none;flex-wrap:wrap;gap:6px;margin:-2px 0 12px}
+.afl button{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:99px;font-size:13px;font-weight:600;background:color-mix(in srgb,var(--sc,var(--acc)) 14%,var(--card));color:var(--ink);border:1px solid color-mix(in srgb,var(--sc,var(--acc)) 40%,var(--line))}
+.afl b{font-size:11px;opacity:.6}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--sc,var(--acc));flex:none;display:inline-block}
+.mb .r2>#fclr{flex:0 0 32%}.mb .r2>#fok{white-space:nowrap}
+.fh{margin:14px 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.fc{flex-wrap:wrap;margin-bottom:4px}.fc button{display:inline-flex;align-items:center;gap:7px}
+.fc button span{font-size:11px;font-weight:700;opacity:.65}
+.chips.fc button.on{background:var(--sc,var(--acc));border-color:var(--sc,var(--acc));color:#fff}
+.fc button.on .dot{background:#fff}
+
+/* sticky notes */
+.nb{width:34px;height:34px;border-radius:10px}
+.nb i{display:block;width:18px;height:18px;border-radius:3px;background:var(--nc);box-shadow:0 1px 3px rgba(0,0,0,.3);transform:rotate(-7deg);position:relative}
+.nb i::after{content:"";position:absolute;right:0;bottom:0;width:6px;height:6px;background:linear-gradient(135deg,rgba(0,0,0,.25),rgba(255,255,255,.6))}
+.ov.nov{background:rgba(10,10,15,.5);align-items:center;padding:20px;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.nwrap{display:flex;flex-direction:column;align-items:center;max-width:100%}
+.ntw{position:relative;width:min(330px,86vw);transform:rotate(var(--r,-1.6deg));filter:drop-shadow(0 16px 18px rgba(0,0,0,.35));animation:npop .5s cubic-bezier(.2,1.25,.35,1) both}
+.ntw.out{animation:nout .22s ease-in forwards}
+@keyframes npop{from{opacity:0;transform:translateY(46px) rotate(7deg) scale(.82)}}
+@keyframes nout{to{opacity:0;transform:translateY(-34px) rotate(6deg) scale(.9)}}
+.nt{min-height:250px;padding:44px 26px 46px;color:#2c2c2c;clip-path:polygon(0 0,100% 0,100% calc(100% - 40px),calc(100% - 40px) 100%,0 100%)}
+.nm{font:700 11.5px/1.2 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.55;margin-bottom:14px;overflow-wrap:anywhere}
+.ntx,.nt textarea{font:600 27px/1.2 Caveat,"Segoe Print","Bradley Hand",cursive;color:#2c2c2c}
+.ntx{white-space:normal;overflow-wrap:anywhere;max-height:44vh;overflow:auto}
+.nt textarea{display:block;width:100%;height:auto;min-height:150px;max-height:44vh;margin:0;padding:0;border:0;border-radius:0;background:transparent;resize:none;outline:none;box-shadow:none}
+.nt textarea:focus{border:0;box-shadow:none}.nt textarea::placeholder{color:rgba(0,0,0,.38)}
+.fl{position:absolute;right:0;bottom:0;width:40px;height:40px;background:linear-gradient(135deg,rgba(0,0,0,.22),var(--fd,#e0b400) 58%);clip-path:polygon(0 0,100% 0,0 100%)}
+.dc{position:absolute;inset:0;pointer-events:none}
+.tp{position:absolute;width:76px;height:26px;background:rgba(247,231,170,.78);box-shadow:0 1px 3px rgba(0,0,0,.22);clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,100% 100%,96% 92%,92% 100%,88% 90%,84% 100%,0 100%)}
+.tp.g{background:rgba(160,214,166,.78)}.tp.b{background:rgba(170,186,204,.82)}
+.tp.tl{left:-20px;top:-6px;transform:rotate(-38deg)}.tp.tr{right:-20px;top:-6px;transform:rotate(38deg)}
+.tp.tc{left:50%;top:-13px;margin-left:-38px;transform:rotate(-2deg)}.tp.rm{right:-24px;top:92px;width:62px;transform:rotate(-72deg)}
+.pin{position:absolute;left:50%;top:-12px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ff9a9a,#e53935 52%,#a31515);box-shadow:0 7px 9px rgba(0,0,0,.4)}
+.pin::after{content:"";position:absolute;left:6px;top:5px;width:7px;height:5px;border-radius:50%;background:rgba(255,255,255,.65);transform:rotate(-30deg)}
+.clip{position:absolute;left:20px;top:-26px;width:30px;height:64px}
+.n0 .nt{background:linear-gradient(180deg,#ffe96d,#fbd535)}.n0{--fd:#d9ae00}
+.n1 .nt{background:linear-gradient(180deg,#f58bbb,#e9569a)}.n1{--fd:#c23f7b}
+.n2 .nt{background:linear-gradient(180deg,#b6e2f8,#92cfee)}.n2{--fd:#6bb0d6}
+.n3 .nt{background:linear-gradient(180deg,#dcec78,#bfd94a)}.n3{--fd:#9fbb34}
+.n4 .nt{background:repeating-linear-gradient(transparent 0 29px,#b8c8e6 29px 30px) 0 30px/100% 100% no-repeat,linear-gradient(90deg,transparent 44px,#e57373 44px,#e57373 45px,transparent 45px),#fbfbfb;padding-left:60px}.n4{--fd:#c9ced4}
+.n4 .ntx,.n4 textarea{line-height:30px}
+.n5 .nt{background:linear-gradient(#d8d0c2 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,#d8d0c2 1px,transparent 1px) 0 0/22px 22px,#f7f2ea}.n5{--fd:#d6c9b3}
+.n6 .nt{background:linear-gradient(180deg,#dcbf9f,#cba982);clip-path:polygon(0 0,100% 0,100% 96%,95% 100%,90% 96%,85% 100%,80% 96%,75% 100%,70% 96%,65% 100%,60% 96%,55% 100%,50% 96%,45% 100%,40% 96%,35% 100%,30% 96%,25% 100%,20% 96%,15% 100%,10% 96%,5% 100%,0% 96%)}.n6 .fl{display:none}
+.n7 .nt{background:linear-gradient(180deg,#ffcf3a,#f5b300)}.n7{--fd:#d49a00}
+.nsw{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.nsw button{width:28px;height:28px;padding:0;border-radius:8px;background:var(--c);border:2px solid rgba(255,255,255,.75);box-shadow:0 2px 6px rgba(0,0,0,.35);transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+.nsw button.on{outline:3px solid #fff;transform:scale(1.18)}
+.nbar{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.nbar button{background:var(--acc);color:#fff;padding:9px 20px;border-radius:99px;display:inline-flex;align-items:center}
+.nbar .g2,.nbar #nted{background:rgba(255,255,255,.94);color:#222}.nbar .rd{background:rgba(255,255,255,.94);color:#c0262d}
+.nbar .ico{width:17px;height:17px;margin-right:7px}
+.nh{color:rgba(255,255,255,.85);font-size:12.5px;margin-top:12px;text-align:center}
+
+/* folders */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:16px 14px;margin-bottom:8px}
+.fhint{display:none;color:var(--mute);font-size:12.5px;margin:0 2px 10px}
+@media(hover:hover) and (pointer:fine){.fhint{display:block}}
+.fdr{position:relative;aspect-ratio:1.16;padding:0;background:transparent;border:0;border-radius:16px;text-align:left;color:var(--fg,#fff);overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.fdt{position:absolute;left:7%;top:0;width:46%;height:20%;border-radius:11px 11px 0 0;background:color-mix(in srgb,var(--sc) 78%,#000)}
+.fdb{position:absolute;left:0;right:0;top:11%;bottom:0;border-radius:6px 18px 18px 18px;background:linear-gradient(180deg,color-mix(in srgb,var(--sc) 68%,#fff),var(--sc));box-shadow:0 12px 24px color-mix(in srgb,var(--sc) 32%,transparent),inset 0 1px 0 rgba(255,255,255,.5)}
+.fdn{position:absolute;left:13px;right:12px;top:30%;font:700 16.5px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fdc{position:absolute;left:13px;bottom:21px;font-size:12px;font-weight:600;opacity:.85}
+.fdp{position:absolute;left:13px;right:13px;bottom:10px;height:4px;border-radius:9px;background:color-mix(in srgb,var(--fg,#fff) 30%,transparent);overflow:hidden}.fdp i{display:block;height:100%;background:var(--fg,#fff);border-radius:9px}
+.fdd{position:absolute;right:9px;top:calc(11% + 9px);min-width:22px;height:22px;padding:0 6px;border-radius:99px;background:var(--red);color:#fff;font:700 12px/22px system-ui,sans-serif;font-style:normal;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.fdr.sel{outline:3px solid var(--acc);outline-offset:3px}
+.crumb{display:flex;align-items:center;gap:12px;margin:2px 0 14px}
+.crumb .back{width:40px;height:40px;flex:none}.crumb .back .ico{width:20px;height:20px}
+.crumb .cf svg{display:block;width:34px;height:34px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.2))}
+.crumb .cn{min-width:0}.crumb .cn b{display:block;font:700 22px/1.2 Georgia,Gelasio,serif;overflow-wrap:anywhere}.crumb .cn small{color:var(--mute)}
 </style></head><body><main>
 <header><button class="ib bell" id="bell" aria-label="Notifications" title="Notifications"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg><i id="bb"></i></button><h1>Recapitulate</h1><p class="tag">Retrieval builds retention</p><button class="ib gear" id="gear" aria-label="Settings" title="Settings">⚙️</button></header>
 <nav class="tabs" id="tabs"><span class="ind" id="ind"></span><button data-t="due"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.8v3.4M16 2.8v3.4M3 10h18M8.5 15.2l2.4 2.3 4.6-4.6"/></svg><span class="l">Today</span><i id="cnt"></i></button><button data-t="all"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h11a3 3 0 0 1 3 3V20H8a3 3 0 0 1-3-3V4.5z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg><span class="l">Register</span></button><button data-t="add"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span class="l">New</span></button></nav>
@@ -209,7 +291,7 @@ if(!Array.isArray(S.subjects))S.subjects=DEF.slice();
 let NOSTORE=false;try{localStorage.setItem("_t","1");localStorage.removeItem("_t")}catch(e){NOSTORE=true}
 if(NOSTORE){$("warn").hidden=false;$("warn").textContent="⚠ This browser is blocking storage, so entries will be lost when you close the page. Use the backup button to export your data."}
 let LB="";try{LB=localStorage.getItem("recap_bk")||""}catch(e){}
-let tab="due",open=null,lastTick="",animIn=true,q="",flt="all";
+let tab="due",open=null,lastTick="",animIn=true,q="",flt="all",fo="",fpush=false;
 const save=()=>store("recap_v1",E),saveS=()=>store("recap_set",S);
 
 function applyPrefs(){const d=document.documentElement,dark=S.theme==="dark"||(S.theme==="auto"&&matchMedia("(prefers-color-scheme:dark)").matches);
@@ -252,12 +334,13 @@ const prompt_=(e,i)=>{const [d,n]=STEPS[i],o=E.filter(x=>x.id!==e.id).slice(-2).
 
 function card(e,only){
  const dn=e.done.filter(Boolean).length,f=fin(e);
- let h=`<div class="card${f?" fin":""}"><div class="hd"><div><div class="ttl"><b>${esc(e.subject)}</b><span class="sp">|</span><span class="st">${esc(e.subs)}</span>${f?'<span class="badge">Completed</span>':""}</div><div class="sub">Studied: ${e.date} · Register created: ${e.created||e.date}</div></div><div class="acts"><button class="ib" data-menu="${e.id}" aria-label="More options" aria-haspopup="menu" aria-expanded="false" title="More options">${ic("dot")}</button></div></div><div class="bar"><i style="width:${dn*20}%"></i></div>`;
+ let h=`<div class="card${f?" fin":""}" style="--sc:${subjColor(e.subject)}"><div class="hd"><div><div class="ttl"><b>${esc(e.subject)}</b><span class="sp">|</span><span class="st">${esc(e.subs)}</span>${f?'<span class="badge">Completed</span>':""}</div><div class="sub">Studied: ${e.date} · Register created: ${e.created||e.date}</div></div><div class="acts">${e.note?`<button class="ib nb" data-note="${e.id}" aria-label="View note" title="View note"><i style="--nc:${NC[e.ns||0]}"></i></button>`:""}<button class="ib" data-menu="${e.id}" aria-label="More options" aria-haspopup="menu" aria-expanded="false" title="More options">${ic("dot")}</button></div></div><div class="bar"><i style="width:${dn*20}%"></i></div>`;
  if(wk(e))h+=`<div class="wk"><span>🔁 Weak spot: re-read your notes and recall it once more.</span><button class="s" data-wk="${e.id}">Done</button></div>`;
  STEPS.forEach(([d,n],i)=>{
   const due=addD(e.date,d),dd=diff(due,T);if(only&&(e.done[i]||dd>0))return;
-  const tag=e.done[i]?(e.conf&&e.conf[i]===1?'<span class="chip od">weak</span>':""):dd<0?`<span class="chip od">${-dd}d overdue</span>`:dd===0?`<span class="chip">due today</span>`:`<small>in ${dd}d</small>`;
-  h+=`<div class="step"><input type="checkbox" class="${lastTick===e.id+":"+i?"pop":""}" data-id="${e.id}" data-i="${i}" ${e.done[i]?"checked":""} aria-label="Mark +${d}d revision done"><span class="${e.done[i]?"done":""}"><b>+${d}d</b> ${n} <small>(${due})</small> ${tag}</span><button class="g s" data-rev="${e.id}:${i}">Session</button></div>`;
+  const tag=e.done[i]?(e.conf&&e.conf[i]===1?'<span class="chip od">weak</span>':""):dd<0?`<span class="chip od">${-dd}d overdue</span>`:dd===0?`<span class="chip">due today</span>`:`<small>unlocks in ${dd}d</small>`;
+  const lock=!e.done[i]&&dd>0;
+  h+=`<div class="step${lock?" lkr":""}"><input type="checkbox" class="${lastTick===e.id+":"+i?"pop":""}${lock?" lk":""}" data-id="${e.id}" data-i="${i}" data-unlock="${due}" ${e.done[i]?"checked":""} aria-label="Mark +${d}d revision done${lock?" (locked until "+due+")":""}"><span class="${e.done[i]?"done":""}"><b>+${d}d</b> ${n} <small>(${due})</small> ${tag}</span><button class="g s" data-rev="${e.id}:${i}">Session</button></div>`;
   if(open===e.id+":"+i)h+=`<div style="margin:6px 0">${S.blurt?'<div class="tm"><span>🧠 Blurt first: close your notes and write everything you remember.</span><button class="g s" data-tm="1">Start 2:00 timer</button></div>':""}<div class="sub" style="margin-bottom:6px">Copy this prompt into Claude for your revision session:</div><pre id="pr">${esc(prompt_(e,i))}</pre><button class="s" data-copy="1">Copy prompt</button></div>`});
  return h+"</div>"}
 
@@ -265,14 +348,36 @@ function badge(){const n=E.filter(e=>pend(e).length||wk(e)).length,c=$("cnt"),bb
  bb.textContent=n>9?"9+":n;bb.style.display=n?"block":"none";
  document.title=(S.badge&&n?"("+n+") ":"")+"Recapitulate – Revision Register";
  try{if(S.badge&&n&&navigator.setAppBadge)navigator.setAppBadge(n);else if(navigator.clearAppBadge)navigator.clearAppBadge()}catch(e){}}
+function getList(){return E.filter(e=>pend(e).length||wk(e)).sort((a,b)=>nextDue(a).localeCompare(nextDue(b)))}
+const regList=()=>{let l=E.filter(e=>S.showDone||!fin(e));if(flt==="act")l=l.filter(e=>!fin(e));if(flt==="done")l=l.filter(fin);return l};
+const sortEntries=l=>{const so=S.sort;l=[...l].sort((a,b)=>so==="due"?nextDue(a).localeCompare(nextDue(b)):so==="az"?a.subject.localeCompare(b.subject)||a.subs.localeCompare(b.subs):0);if(so==="new")l.reverse();return l};
+const fgFor=c=>{const h=String(c);if(h[0]!=="#")return"#fff";const n=parseInt(h.slice(1),16);return(.299*(n>>16)+.587*(n>>8&255)+.114*(n&255))>150?"#1f2328":"#fff"};
+const BACK='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+const FOLD='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="currentColor"/></svg>';
 function fillList(){
- let l=E.filter(e=>tab==="due"?(pend(e).length||wk(e)):(S.showDone||!fin(e)));
- if(tab==="all"){const k=q.trim().toLowerCase();if(k)l=l.filter(e=>(e.subject+" "+e.subs).toLowerCase().includes(k));if(flt==="act")l=l.filter(e=>!fin(e));if(flt==="done")l=l.filter(fin)}
- const so=tab==="due"?"due":S.sort;
- l=[...l].sort((a,b)=>so==="due"?nextDue(a).localeCompare(nextDue(b)):so==="az"?a.subject.localeCompare(b.subject):0);
- if(so==="new")l.reverse();
- const emp=!E.length?`<div class="empty"><b>📒</b>Welcome! Log what you studied today and Recapitulate will schedule every revision for you.<br><br><button data-go="add">+ Create your first register</button></div>`:tab==="due"?`<div class="empty">${ic("conf","big")}You're all caught up. Nothing due today.</div>`:`<div class="empty"><b>📒</b>No registers match.</div>`;
- $("lst").innerHTML=l.length?l.map(e=>card(e,tab==="due")).join(""):emp}
+ if(tab==="all"){fillRegister();return}
+ const l=getList(),emp=!E.length?`<div class="empty"><b>📒</b>Welcome! Log what you studied today and Recapitulate will schedule every revision for you.<br><br><button data-go="add">+ Create your first register</button></div>`:`<div class="empty">${ic("conf","big")}You're all caught up. Nothing due today.</div>`;
+ $("lst").innerHTML=l.length?l.map(e=>card(e,true)).join(""):emp}
+function fillRegister(){
+ const L=$("lst"),k=q.trim().toLowerCase(),all=regList(),mt=e=>(e.subject+" "+e.subs).toLowerCase().includes(k);
+ if(fo&&!E.some(e=>norm(e.subject)===fo))fo="";
+ const none=m=>`<div class="empty"><b>📒</b>${m}</div>`;
+ if(!E.length){L.innerHTML=`<div class="empty"><b>📒</b>Welcome! Log what you studied today and Recapitulate will schedule every revision for you.<br><br><button data-go="add">+ Create your first register</button></div>`;afl();return}
+ if(fo){const name=subjName(fo),col=subjColor(name),tot=E.filter(e=>norm(e.subject)===fo).length;let l=all.filter(e=>norm(e.subject)===fo);if(k)l=l.filter(mt);l=sortEntries(l);
+  L.innerHTML=`<div class="crumb"><button class="ib back" data-back="1" aria-label="Back to folders" title="Back">${BACK}</button><span class="cf" style="color:${col}">${FOLD}</span><div class="cn"><b>${esc(name)}</b><small>${tot} register${tot===1?"":"s"}</small></div></div>`+(l.length?l.map(e=>card(e,false)).join(""):none("No registers match."))}
+ else if(k){const l=sortEntries(all.filter(mt));L.innerHTML=`<div class="sub" style="margin:2px 2px 10px">${l.length} result${l.length===1?"":"s"} across all folders</div>`+(l.length?l.map(e=>card(e,false)).join(""):none("No registers match."))}
+ else{const g=new Map();all.forEach(e=>{const key=norm(e.subject),o=g.get(key)||{key,name:e.subject,es:[],idx:0};o.es.push(e);o.idx=Math.max(o.idx,E.indexOf(e));g.set(key,o)});
+  const so=S.sort;let fs=[...g.values()].sort((a,b)=>so==="az"?a.name.localeCompare(b.name):so==="due"?a.es.map(nextDue).sort()[0].localeCompare(b.es.map(nextDue).sort()[0]):b.idx-a.idx);
+  L.innerHTML=fs.length?`<div class="fhint">Double-click a folder to open it</div><div class="fgrid">`+fs.map(f=>{const col=subjColor(f.name),dn=f.es.reduce((a,e)=>a+e.done.filter(Boolean).length,0),pc=Math.round(dn/(f.es.length*5)*100),due=f.es.filter(e=>pend(e).length||wk(e)).length;
+   return `<button class="fdr" data-fo="${esc(f.key)}" style="--sc:${col};--fg:${fgFor(col)}" aria-label="${esc(f.name)} folder, ${f.es.length} register${f.es.length===1?"":"s"}"><i class="fdt"></i><i class="fdb"></i><span class="fdn">${esc(f.name)}</span><span class="fdc">${f.es.length} register${f.es.length===1?"":"s"}</span>${due?`<em class="fdd" title="${due} due">${due}</em>`:""}<span class="fdp"><i style="width:${pc}%"></i></span></button>`}).join("")+`</div>`:none("No registers match.")}
+ afl()}
+function slide(dir){if(motionOK())view.animate([{opacity:0,transform:"translateX("+dir*44+"px)"},{opacity:1,transform:"translateX(0)"}],{duration:420,easing:"cubic-bezier(.22,1,.36,1)"})}
+function openFolder(k){if(fo===k)return;fo=k;tab="all";open=null;animIn=false;closeMenu(true);render();slide(1);window.scrollTo({top:0});try{history.pushState({rf:1},"");fpush=true}catch(e){fpush=false}}
+function closeFolder(fromPop){if(!fo)return;fo="";open=null;animIn=false;closeMenu(true);render();slide(-1);window.scrollTo({top:0});if(!fromPop&&fpush){fpush=false;try{history.back()}catch(e){}}else fpush=false}
+window.addEventListener("popstate",()=>{if(fo){fpush=false;closeFolder(true)}});
+function fldClick(ev,b){const touch=ev.pointerType==="touch"||ev.pointerType==="pen"||matchMedia("(hover:none)").matches||ev.detail===0;
+ if(touch){openFolder(b.dataset.fo);return}
+ view.querySelectorAll(".fdr.sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel")}
 
 function fields(e){e=e||{};const L=S.subjects.slice();if(e.subject&&!L.includes(e.subject))L.push(e.subject);
  return `<label>Subject</label><select id="fj">${L.map(x=>`<option ${x===e.subject?"selected":""}>${esc(x)}</option>`).join("")}<option value="__o">Other (type your own)…</option></select><input id="fo" placeholder="Type your subject" style="display:none"><label>Sub-topics</label><textarea id="fs" rows="2" placeholder="e.g. Discount, Successive discount">${esc(e.subs||"")}</textarea><label>Date studied (Day 1)</label><input id="fd" type="date" value="${e.date||T}"><div class="err" id="fe"></div>`}
@@ -281,9 +386,30 @@ function readF(){$("fe").textContent="";const s=($("fj").value==="__o"?$("fo").v
  if(!s||!t){$("fe").textContent="Please choose a subject and add sub-topics.";return null}return{subject:s,subs:t,date:$("fd").value||T}}
 
 const norm=t=>String(t).toLowerCase().replace(/[\s,;.]+/g," ").trim();
+const PAL=["#3b82f6","#8b5cf6","#ec4899","#f97316","#eab308","#22c55e","#14b8a6","#06b6d4","#6366f1","#d946ef","#a16207","#0ea5e9","#84cc16","#64748b"];
+if(!S.sc||typeof S.sc!=="object"||Array.isArray(S.sc))S.sc={};
+function subjColor(name){const k=norm(name);if(S.sc[k])return S.sc[k];const used=new Set(Object.values(S.sc));let c=PAL.find(x=>!used.has(x));
+ if(!c){const n=Object.values(S.sc).filter(v=>String(v).startsWith("hsl")).length;c="hsl("+(30+Math.round(n*137.508%300))+" 62% 52%)"}
+ S.sc[k]=c;saveS();return c}
+const toHex=c=>{try{const x=document.createElement("canvas").getContext("2d");x.fillStyle="#000";x.fillStyle=c;return x.fillStyle}catch(e){return"#3b82f6"}};
+DEF.forEach(subjColor);
 const dupe=(r,skip)=>E.find(x=>x.id!==skip&&norm(x.subject)===norm(r.subject)&&norm(x.subs)===norm(r.subs));
 function dupeErr(d,btn){$("fe").textContent=`Already in your register: ${d.subject} | ${d.subs} (studied ${d.date}). Edit that one instead of repeating it.`;
  if(btn){btn.classList.remove("shake");void btn.offsetWidth;btn.classList.add("shake")}}
+const FUN='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></svg>';
+const subjName=k=>{const e=E.find(x=>norm(x.subject)===k);return e?e.subject:k};
+function afl(){const el=$("afl"),fb=$("fb"),bt=$("fbtn");if(!el)return;
+ const A=[];if(flt!=="all")A.push(`<button data-x="f">${flt==="act"?"Active":"Completed"}<b>✕</b></button>`);
+ el.innerHTML=A.join("");el.style.display=A.length?"flex":"none";
+ fb.textContent=A.length;fb.style.display=A.length?"block":"none";bt.classList.toggle("on",!!A.length)}
+function filters(){
+ const ov=sheet(`<h3>Filters</h3>
+ <h4 class="fh">Status</h4><div class="chips fc">${[["all","All"],["act","Active"],["done","Completed"]].map(([k,l])=>`<button data-f="${k}" class="${flt===k?"on":""}">${l}</button>`).join("")}</div>
+ <div class="r2" style="margin-top:16px"><button class="g" id="fclr">Clear</button><button id="fok"></button></div>`);
+ const upd=()=>{fillList();const n=regList().length;$("fok").textContent="Show "+n+" register"+(n===1?"":"s")};upd();
+ ov.addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;
+  if(b.dataset.f!=null)flt=b.dataset.f;else if(b.id==="fclr")flt="all";else if(b.id==="fok"){closeM();return}else return;
+  ov.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x.dataset.f===flt));upd()})}
 function render(){
  $("tabs").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.t===tab));badge();moveInd();
  const v=$("view");v.className=animIn?"enter":"";animIn=false;
@@ -293,27 +419,34 @@ function render(){
    E.push({id:uid(),...r,created:T,done:[0,0,0,0,0]});save();
    b.classList.add("fly");b.querySelector(".lbl").textContent="Created ✓";
    const wait=S.anim&&!matchMedia("(prefers-reduced-motion:reduce)").matches?1000:250;
-   setTimeout(()=>{tab="all";animIn=true;toast("Register created ✔");render()},wait)};return}
+   setTimeout(()=>{tab="all";fo=norm(r.subject);animIn=true;toast("Register created ✔");render()},wait)};return}
  if(tab==="due"){const od=E.reduce((a,e)=>a+pend(e).filter(i=>diff(addD(e.date,STEPS[i][0]),T)<0).length,0),dt=E.reduce((a,e)=>a+pend(e).filter(i=>diff(addD(e.date,STEPS[i][0]),T)===0).length,0);
   v.innerHTML=`<div class="stats"><div class="stat w"><b>${dt}</b><span>Due today</span></div><div class="stat r"><b>${od}</b><span>Overdue</span></div><div class="stat g"><b>${E.filter(fin).length}</b><span>Completed</span></div></div><div id="lst"></div>`}
- else v.innerHTML=`<div class="srch">${ic("sr")}<input id="q" type="search" placeholder="Search subject or sub-topic" value="${esc(q)}"></div><div class="chips">${[["all","All"],["act","Active"],["done","Completed"]].map(([k,l])=>`<button data-f="${k}" class="${flt===k?"on":""}">${l}</button>`).join("")}</div><div id="lst"></div>`;
- fillList()}
+ else v.innerHTML=`<div class="sbar"><div class="srch">${ic("sr")}<input id="q" type="search" placeholder="Search subject or sub-topic" value="${esc(q)}"></div><button class="ib fbtn" id="fbtn" aria-label="Filters" title="Filters">${FUN}<i id="fb"></i></button></div><div class="afl" id="afl"></div><div id="lst"></div>`;
+ if($("fbtn"))$("fbtn").onclick=filters;fillList()}
 
 $("tabs").onclick=ev=>{const b=ev.target.closest("button");if(b)tapTab(b.dataset.t)};
 const view=$("view");
 view.addEventListener("input",ev=>{if(ev.target.id==="q"){q=ev.target.value;fillList()}});
 view.addEventListener("change",ev=>{const c=ev.target;if(c.type!=="checkbox")return;const e=E.find(x=>x.id===c.dataset.id);if(!e)return;
+ if(c.checked&&diff(c.dataset.unlock,T)>0){c.checked=false;return}
  const on=c.checked,ix=+c.dataset.i;e.done[ix]=on?1:0;lastTick=c.dataset.id+":"+ix;save();
  if(tab==="due")render();else{fillList();badge()}lastTick="";
  if(on&&S.rate)rate(e,ix)});
+view.addEventListener("dblclick",ev=>{const b=ev.target.closest&&ev.target.closest("[data-fo]");if(b){try{getSelection().removeAllRanges()}catch(e){}openFolder(b.dataset.fo)}});
 view.addEventListener("click",ev=>{const t=ev.target,g=a=>t.closest("["+a+"]");let b;
+ const lk=t.closest&&t.closest("input.lk");if(lk){ev.preventDefault();toast("This revision unlocks on "+lk.dataset.unlock);lk.classList.remove("shake");void lk.offsetWidth;lk.classList.add("shake");return}
  if(b=g("data-menu"))openMenu(b);
- else if(b=g("data-f")){flt=b.dataset.f;view.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b));fillList()}
+
+ else if(b=g("data-x")){flt="all";fillList()}
+ else if(b=g("data-fo"))fldClick(ev,b)
+ else if(b=g("data-back"))closeFolder()
  else if(b=g("data-rev")){open=open===b.dataset.rev?null:b.dataset.rev;fillList()}
  else if(b=g("data-copy")){const x=$("pr").textContent;try{navigator.clipboard.writeText(x);b.textContent="Copied!"}catch(e){const r=document.createRange();r.selectNodeContents($("pr"));getSelection().removeAllRanges();getSelection().addRange(r);b.textContent="Selected, press copy"}}
  else if(b=g("data-go"))tapTab(b.dataset.go)
  else if(b=g("data-wk")){const e=E.find(x=>x.id===b.dataset.wk);if(e){e.weak=null;save();render();toast("Weak spot cleared ✔")}}
  else if(b=g("data-tm"))timer(b);
+ else if(b=g("data-note")){closeMenu(true,true);openNote(b.dataset.note)}
  else if(b=g("data-del")){closeMenu(true,true);delAsk(b.dataset.del)}
  else if(b=g("data-edit")){closeMenu(true,true);edit(b.dataset.edit)}});
 
@@ -325,11 +458,33 @@ function openMenu(btn){const id=btn.dataset.menu,c=btn.closest(".card"),was=docu
  closeMenu(true);if(same)return;
  c.classList.add("mopen");btn.setAttribute("aria-expanded","true");
  const m=document.createElement("div");m.className="menu";m.setAttribute("role","menu");
- m.innerHTML=`<button role="menuitem" data-edit="${id}">${ic("pen")}<span>Edit register</span></button><div class="sep"></div><button role="menuitem" class="dg" data-del="${id}">${ic("tr")}<span>Delete</span></button>`;
+ const hasN=!!(E.find(x=>x.id===id)||{}).note;
+ m.innerHTML=`<button role="menuitem" data-edit="${id}">${ic("pen")}<span>Edit register</span></button><button role="menuitem" data-note="${id}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#e2a400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14a1 1 0 0 1 1 1v9l-6 6H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 20v-5a1 1 0 0 1 1-1h5"/></svg><span>${hasN?"View note":"Add note"}</span></button><div class="sep"></div><button role="menuitem" class="dg" data-del="${id}">${ic("tr")}<span>Delete</span></button>`;
  btn.parentNode.appendChild(m);
- const r=m.getBoundingClientRect();if(r.bottom>innerHeight-12&&btn.getBoundingClientRect().top>r.height+24)m.classList.add("up");
+ const r=m.getBoundingClientRect(),tb=$("tabs"),bar=getComputedStyle(tb).position==="fixed"?tb.offsetHeight+22:0;if(r.bottom>innerHeight-12-bar&&btn.getBoundingClientRect().top>r.height+24)m.classList.add("up");
  m.querySelector("button").focus({preventScroll:true})}
 document.addEventListener("click",ev=>{if(!ev.target.closest(".menu,[data-menu]"))closeMenu()});
+
+/* ---- Sticky notes ---- */
+const NC=["#fdd835","#ee5fa0","#9ad4f2","#cfe55a","#fbfbfb","#f4eee3","#d6b595","#ffc21a"];
+const CLIP='<svg class="clip" viewBox="0 0 24 48" aria-hidden="true"><path d="M7 14V8a5 5 0 0 1 10 0v26a7 7 0 0 1-14 0V12" fill="none" stroke="#8d99a6" stroke-width="2.4" stroke-linecap="round"/></svg>';
+const ND=['<i class="tp tl"></i><i class="tp tr"></i>','<i class="tp tr g"></i><i class="tp rm g"></i>','<i class="tp tl"></i><i class="tp tr"></i>','<i class="tp tl g"></i>','<i class="tp tc g"></i>',CLIP,'<i class="tp tc b"></i>','<i class="pin"></i>'];
+const noteWrap=(e,i,inner)=>`<div class="ntw n${i}" style="--r:${i%2?1.4:-1.6}deg"><div class="nt"><div class="nm">${esc(e.subject)} | ${esc(e.subs)}</div>${inner}</div><i class="fl"></i><div class="dc">${ND[i]}</div></div>`;
+function overlay(html,cls){if(!$("modal").firstChild)lastFocus=document.activeElement;$("toast").classList.remove("show");$("modal").innerHTML=`<div class="ov ${cls||""}">${html}</div>`;document.body.style.overflow="hidden";return $("modal").firstChild}
+function noteClose(){const w=document.querySelector("#modal .ntw");if(!w||!S.anim){closeM();return}w.classList.add("out");const ov=$("modal").firstChild;ov.style.transition="opacity .22s";ov.style.opacity="0";setTimeout(closeM,220)}
+function openNote(id){const e=E.find(x=>x.id===id);if(!e)return;e.note?noteView(e):noteEdit(e)}
+function noteView(e){const i=e.ns||0;
+ const ov=overlay(`<div class="nwrap">${noteWrap(e,i,`<div class="ntx">${esc(e.note).replace(/\n/g,"<br>")}</div>`)}<div class="nbar"><button id="nted">${ic("pen")}Edit</button><button id="ndel" class="rd">${ic("tr")}Delete</button></div><div class="nh">Tap anywhere to close</div></div>`,"nov");
+ ov.onclick=ev=>{if(ev.target.closest(".nbar"))return;noteClose()};
+ $("nted").onclick=ev=>{ev.stopPropagation();noteEdit(e)};
+ $("ndel").onclick=ev=>{ev.stopPropagation();const o=e.note,os=e.ns;delete e.note;delete e.ns;save();closeM();render();toast("Note deleted",()=>{e.note=o;if(os!=null)e.ns=os;save();render();toast("Note restored ✔")})}}
+function noteEdit(e){let st=e.ns||0;const had=!!e.note;
+ const ov=overlay(`<div class="nwrap">${noteWrap(e,st,`<textarea id="ntxt" maxlength="500" rows="5" placeholder="Write a note, formula or trap to remember…">${esc(e.note||"")}</textarea>`)}<div class="nsw">${NC.map((c,i)=>`<button data-st="${i}" style="--c:${c}" class="${i===st?"on":""}" aria-label="Note style ${i+1}"></button>`).join("")}</div><div class="nbar"><button class="g2" id="nc">Cancel</button><button id="ns">Save</button></div></div>`,"nov");
+ const ta=$("ntxt"),w=ov.querySelector(".ntw");
+ const done=()=>{const t=ta.value.trim();if(t){e.note=t;e.ns=st}else{delete e.note;delete e.ns}save();closeM();render();if(t)toast("Note saved ✔");else if(had)toast("Note removed")};
+ ov.onclick=ev=>{if(ev.target===ov)done()};$("ns").onclick=done;$("nc").onclick=closeM;
+ ov.querySelector(".nsw").onclick=ev=>{const b=ev.target.closest("[data-st]");if(!b)return;st=+b.dataset.st;ov.querySelectorAll("[data-st]").forEach(x=>x.classList.toggle("on",x===b));w.className="ntw n"+st;w.style.setProperty("--r",(st%2?1.4:-1.6)+"deg");w.querySelector(".dc").innerHTML=ND[st]};
+ setTimeout(()=>ta.focus(),160)}
 function delAsk(id){const e=E.find(x=>x.id===id);
  sheet(`<div class="ic">⚠️</div><h3>Delete this register?</h3><p><b>${esc(e.subject)}</b> – ${esc(e.subs)}<br>All revision checkpoints and progress will be permanently lost. This cannot be undone.</p><div class="r2"><button class="g" id="no">Keep it</button><button class="red" id="yes">Yes, delete</button></div>`,"c");
  $("no").onclick=closeM;$("yes").onclick=()=>{const ix=E.findIndex(x=>x.id===id),del=E[ix];E.splice(ix,1);save();closeM();render();toast("Register deleted",()=>{E.splice(Math.min(ix,E.length),0,del);save();render();toast("Restored ✔")})}}
@@ -350,9 +505,9 @@ function imp(txt){txt=String(txt||"").replace(/^\uFEFF/,"").trim();if(!txt)retur
  a.forEach(x=>{if(!x||!x.subject||!x.subs){sk++;return}
   const date=dt(x.date)?x.date:dt(x.created)?x.created:T;
   const r={id:String(x.id||uid()),subject:String(x.subject),subs:String(x.subs),date,created:x.created||date,done:[0,1,2,3,4].map(i=>x.done&&x.done[i]?1:0)};
-  if(Array.isArray(x.conf))r.conf=x.conf.slice(0,5);if(x.weak)r.weak=x.weak;
+  if(Array.isArray(x.conf))r.conf=x.conf.slice(0,5);if(x.note){r.note=String(x.note).slice(0,500);r.ns=Number.isInteger(x.ns)&&x.ns>=0&&x.ns<NC.length?x.ns:0}if(x.weak)r.weak=x.weak;
   const y=E.find(y=>y.id===r.id||key(y)===key(r));
-  if(y){const d=y.done.map((v,i)=>v||r.done[i]?1:0);if(d.join()!==y.done.join()){y.done=d;u++}else sk++;return}
+  if(y){const d=y.done.map((v,i)=>v||r.done[i]?1:0);let ch=0;if(d.join()!==y.done.join()){y.done=d;ch=1}if(!y.note&&r.note){y.note=r.note;y.ns=r.ns;ch=1}if(ch)u++;else sk++;return}
   E.push(r);n++});
  if(n||u){save();render()}
  const m=[n&&n+" added",u&&u+" updated",sk&&sk+" already here"].filter(Boolean).join(", ");
@@ -376,7 +531,7 @@ function backup(){
 $("bkb").innerHTML=ic("bk");$("bkb").onclick=backup;
 
 /* ---- Settings ---- */
-function subList(){$("sbl").innerHTML=S.subjects.map((x,i)=>`<span>${esc(x)}<button data-rs="${i}" aria-label="Remove">✕</button></span>`).join("")||'<small class="sub">No subjects. Add one below.</small>'}
+function subList(){$("sbl").innerHTML=S.subjects.map((x,i)=>{const c=subjColor(x);return `<span><label class="cd" style="background:${c}" title="Change colour"><input type="color" data-sk="${i}" value="${toHex(c)}"></label>${esc(x)}<button data-rs="${i}" aria-label="Remove">✕</button></span>`}).join("")||'<small class="sub">No subjects. Add one below.</small>'}
 function settings(){
  const ov=sheet(`<h3>Settings</h3>
  <div class="sec"><h4>Appearance</h4><div class="seg">${["auto","light","dark"].map(t=>`<button data-th="${t}" class="${S.theme===t?"on":""}">${t[0].toUpperCase()+t.slice(1)}</button>`).join("")}</div>
@@ -410,6 +565,8 @@ function settings(){
  $("tan").onchange=e=>{S.anim=e.target.checked;saveS();applyPrefs()};
  $("tsd").onchange=e=>{S.showDone=e.target.checked;saveS();render()};
  $("tso").onchange=e=>{S.sort=e.target.value;saveS();render()};
+ ov.addEventListener("input",ev=>{const i=ev.target.dataset&&ev.target.dataset.sk;if(i!=null){S.sc[norm(S.subjects[+i])]=ev.target.value;ev.target.parentNode.style.background=ev.target.value;saveS()}});
+ ov.addEventListener("change",ev=>{if(ev.target.dataset&&ev.target.dataset.sk!=null)render()});
  $("nfy").onchange=async e=>{if(e.target.checked){if(!await askPerm()){e.target.checked=false;S.notify=false;saveS();return}S.notify=true;saveS();regSW();toast("Daily reminder on ✔");remindCheck()}else{S.notify=false;saveS()}};
  $("rtime").onchange=e=>{S.rtime=e.target.value||"08:00";saveS()};
  $("nsm").onchange=e=>{S.sum=e.target.checked;saveS()};
@@ -489,5 +646,5 @@ setTimeout(()=>{const n=E.filter(e=>pend(e).length||wk(e)).length;
 
 render();
 document.addEventListener("visibilitychange",()=>{const n=iso(new Date());if(!document.hidden&&n!==T){T=n;render()}});
-document.addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;const R=b.getBoundingClientRect(),d=Math.max(R.width,R.height)*2,x=document.createElement("span");x.className="rp";x.style.cssText=`width:${d}px;height:${d}px;left:${ev.clientX-R.left-d/2}px;top:${ev.clientY-R.top-d/2}px`;b.appendChild(x);setTimeout(()=>x.remove(),600)});
+document.addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b||b.classList.contains("fdr"))return;const R=b.getBoundingClientRect(),d=Math.max(R.width,R.height)*2,x=document.createElement("span");x.className="rp";x.style.cssText=`width:${d}px;height:${d}px;left:${ev.clientX-R.left-d/2}px;top:${ev.clientY-R.top-d/2}px`;b.appendChild(x);setTimeout(()=>x.remove(),600)});
 </script></body></html>
