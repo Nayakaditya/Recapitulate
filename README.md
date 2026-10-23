@@ -4,17 +4,42 @@ A clean, single-file revision register for exam prep (1-3-7-15-30 day spaced rep
 
 ## Put it online (GitHub Pages)
 1. Create a free GitHub account, then **New repository** → name it `recapitulate` → **Public** → Create.
-2. Click **uploading an existing file**, drag in ALL of these files: `index.html`, `sw.js`, `manifest.webmanifest`, `icon-192.png`, `icon-512.png` (replace old ones if they exist), then **Commit changes**.
+2. Click **uploading an existing file**, drag in ALL of these files: `index5.html` **renamed to `index.html`** (GitHub Pages opens `index.html` automatically; if you keep the name `index5.html` the site address must end in `/index5.html`), `sw.js`, `manifest.webmanifest`, `icon-192.png`, `icon-512.png` (replace old ones if they exist), then **Commit changes**.
+   If your phone still shows the old version afterwards, close the app fully and reopen it (the cache in `sw.js` can hold the previous version for one visit).
 3. **Settings → Pages** → Source: *Deploy from a branch* → Branch `main`, folder `/ (root)` → Save.
 4. After 1-2 minutes the site is live at `https://YOUR-USERNAME.github.io/recapitulate/`.
 
-If you set up Firebase/Google sign-in earlier, you can delete that Firebase project; this version does not use it.
+## Google sign-in and cloud backup (optional, free)
+Without this, entries live only in the browser you use. With it, your register is saved to your own Google account and comes back after you reinstall the browser or change device. Everything works as before without it.
+
+1. Go to https://console.firebase.google.com → **Add project** (any name; Analytics can be off).
+2. **Build → Authentication → Get started → Sign-in method → Google → Enable** → choose a support email → Save.
+3. **Build → Firestore Database → Create database** → production mode → pick a region near you.
+4. Firestore **Rules** tab: replace the rules with the following and **Publish**. This lets each person read and write only their own data.
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{db}/documents {
+       match /users/{uid} {
+         allow read, write: if request.auth != null && request.auth.uid == uid;
+       }
+     }
+   }
+   ```
+5. **Authentication → Settings → Authorized domains → Add domain**: `YOUR-USERNAME.github.io`.
+6. **Project settings ⚙️ → General → Your apps → Web app (</>)** → register it, then copy the four values `apiKey`, `authDomain`, `projectId`, `appId` into `FIREBASE_CONFIG` near the top of the cloud section in `index5.html` (search for `FIREBASE_CONFIG`). These web config values are not secrets, so it is fine that they sit in a public repository. Never put a client secret, service-account key or password into this file.
+7. Upload the file, open the site, then **Settings ⚙️ → Google cloud backup → Sign in with Google**.
+
+How it syncs: after any change it saves to the cloud a few seconds later, and it checks the cloud again each time you return to the app. First sign-in on a device that already has entries merges them with the cloud copy (ticks are combined, same-topic registers are not duplicated). On a new device with no entries it simply downloads your register. Limits: if you change data on two devices at the same moment the later save wins; deleting a register on one device can bring it back after merging with another; the whole register must stay under about 900 KB; on an iPhone installed to the Home Screen the Google pop-up may be blocked, so sign in once from Safari. **Delete all data** also clears the cloud copy while you are signed in.
 
 ## Your data
-Entries live in the browser you use. Clearing browser data, using a private window or switching device will not carry them over, so use **Export backup** now and then (on computers the 💾 button at the bottom-right, on phones Settings ⚙️ → Backup & Restore), and **Import backup** on any device to restore. Importing only adds missing entries.
+Without cloud backup, entries live in the browser you use. Clearing browser data, using a private window or switching device will not carry them over, so use **Export backup** now and then (Settings ⚙️ → Backup & Restore), and **Import backup** on any device to restore. Importing only adds missing entries.
 
 ## Features
 - Today, Register and + New tabs; due/overdue counters; search and filters
+- Today tab: filter chips (All / Due today / Overdue); the green box counts revisions you finished in the last 24 hours, with "of N" including what is still due; a "Completed in the last 24 hours" list at the bottom shows each tick in the order you did it, with the time, and each item drops off after 24 hours
+- Register filter → Revision: Added today, Due today (everything you need to revise now, including overdue), Revised yesterday, Due tomorrow
+- + New tab: an "Added today" list so you can see what you already logged, and a yellow warning while typing if the subject and sub-topics look similar to an existing register (also shown when editing one). It only warns; exact duplicates are still blocked
 - Subject dropdown (edit the list in Settings), a ⋮ menu on each card (Edit / Delete), delete with a warning pop-up and a 6-second Undo
 - Duplicate protection: the same subject + sub-topics can't be created twice
 - Gestures (Settings → Gestures & shortcuts, each can be switched off): swipe left/right between tabs; press and hold a folder or register title for its menu; swipe a pop-up down to close it; flick or tap a note to close it; pull-to-refresh is blocked so a stray pull can't reload the page; one-time tips teach each gesture. On a computer: right-click folders and registers, arrow keys / Enter / F2 / Delete / Backspace on folders
