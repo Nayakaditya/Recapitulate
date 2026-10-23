@@ -76,7 +76,6 @@ button.red{background:var(--red)}button.ro{background:transparent;color:var(--re
 pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;font:13px/1.45 ui-monospace,monospace;animation:up .3s ease both}
 .empty{color:var(--mute);text-align:center;padding:36px 12px}.empty b{display:block;font-size:34px;margin-bottom:6px}
 .err{color:var(--red);font-size:13px;min-height:18px;margin:-4px 0 6px}.ok{color:var(--ok)!important}.bad{color:var(--red)!important}
-.fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:56px;height:56px;padding:0;border-radius:50%;font-size:25px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.3);z-index:5;background:var(--card);border:1px solid var(--line)}
 .ov{position:fixed;inset:0;background:rgba(10,10,15,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:9;animation:fi .15s}
 .mb{background:var(--card);border-radius:20px;padding:22px;max-width:440px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:pop .22s}
 .mb.c{text-align:center;max-width:380px}.mb .ic{font-size:44px}
@@ -103,7 +102,6 @@ details{margin-top:12px}summary{cursor:pointer;color:var(--acc);font-size:14px}.
 .toast.act{pointer-events:auto}[data-theme="dark"] .toast button{color:#2a5bd7}.toast button{background:transparent;color:#8ab4ff;padding:2px 10px;margin-left:8px;border-radius:99px;font-size:14px}
 .tip{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:14px;padding:10px 12px;margin-bottom:12px;font-size:14px}
 .ico{width:22px;height:22px;display:inline-block;vertical-align:middle;pointer-events:none;flex:none}
-.fab .ico{width:34px;height:34px}
 .big{width:64px;height:64px;display:block;margin:0 auto 8px}.mb .big{width:56px;height:56px}
 .mb h3 .ico{width:28px;height:28px;margin-right:8px;vertical-align:-6px}.r2 button .ico{width:18px;height:18px;margin-right:6px;vertical-align:-4px}
 .srch{position:relative}.srch .ico{position:absolute;left:12px;top:12px;width:20px;height:20px}.srch input{padding-left:42px}
@@ -166,7 +164,6 @@ main{touch-action:pan-y pinch-zoom;overflow-x:clip}
  .tabs button[data-t="add"]{order:2}.tabs button[data-t="all"]{order:3}
  .tabs .ti{display:block}.tabs [data-t="add"] .l::before{content:""}
  .tabs i{position:absolute;top:5px;left:calc(50% + 7px);margin:0;font-size:10px}
- .fab{display:none}
  .toast{bottom:calc(100px + env(safe-area-inset-bottom,0px))}
  body.kb .tabs,body.kb .fab{transform:translateY(160%);opacity:0;pointer-events:none}
 }
@@ -596,12 +593,17 @@ html[data-theme="dark"][data-wall="midnight"] body{background:linear-gradient(18
 .cgbr{display:grid;grid-template-columns:92px 1fr 42px 40px;gap:8px;align-items:center;margin:8px 0;font-size:12.5px}.cgbr .bar{margin:0}.cgbr b{text-align:right}.cgbr small{text-align:right;color:var(--mute)}.cgbr .cgchip{justify-self:start;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cgmi{padding:9px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:2px}.cgmi:first-of-type{border-top:0;padding-top:0}.cgmi b{font:700 16px Georgia,serif;overflow-wrap:anywhere}.cgmi small{color:var(--mute);font-size:12px}
 .cgp>*{flex-shrink:0}
+.dnw{margin-top:18px}.dnh{display:flex;justify-content:space-between;align-items:center;margin:0 2px 8px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}.dnh b{font-weight:700}.dnh span{background:var(--ok);color:#fff;border-radius:99px;padding:0 8px;font-size:11.5px;font-weight:700}
+.dni{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sc,var(--ok));border-radius:12px;padding:8px 10px;margin-bottom:6px}
+.dno{flex:none;width:24px;height:24px;border-radius:50%;background:color-mix(in srgb,var(--ok) 16%,var(--card));color:var(--ok);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.dni div{min-width:0;font-size:14px}.dni small{display:block;color:var(--mute);font-size:12px}.dni .st{color:var(--mute)}
+.tfc{margin-bottom:12px}
+.simw{display:none;margin:-2px 0 12px;padding:9px 11px;border-radius:10px;background:var(--hl);color:var(--ink);font-size:13px;line-height:1.45}.simw b{display:block;margin-bottom:2px}.simw.on{display:block}
 </style></head><body><main>
 <header><div class="hbar"><div class="hl"><button class="ib bell" id="bell" aria-label="Notifications" title="Notifications"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg><i id="bb"></i></button></div><div class="hr2"><button class="ib calcb" id="calcb" aria-label="Calc challenge" title="Calc challenge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg></button><button class="ib strk zero" id="strk" aria-label="Streak and level" title="Streak"><svg class="fl" viewBox="0 0 24 32" aria-hidden="true"><path class="f1" d="M12 1c1.2 6.5 8.4 9.6 8.4 18.2A8.4 8.4 0 0 1 3.6 19.2c0-4.2 2.2-6.4 4.2-8.4.2 4 2 6 4 6 .4-6-2.2-10.2.2-15.8z"/><path class="f2" d="M12 10c.8 4 5.6 6 5.6 11.2a5.6 5.6 0 0 1-11.2 0c0-2.8 1.4-4.2 2.8-5.6.2 2.8 1.4 4 2.8 4 .2-4-1.2-6.4 0-9.6z"/><path class="f3" d="M12 19c.5 2.2 3 3.2 3 6a3 3 0 0 1-6 0c0-1.6.8-2.4 1.6-3.2.2 1.4.8 2 1.4 2 .1-2-.6-3.2 0-4.8z"/></svg><b class="sn" id="sn">0</b></button><button class="ib gear" id="gear" aria-label="Settings" title="Settings">⚙️</button></div></div><h1>Recapitulate</h1><p class="tag">Retrieval builds retention</p></header>
 <nav class="tabs" id="tabs"><span class="ind" id="ind"></span><button data-t="due"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.8v3.4M16 2.8v3.4M3 10h18M8.5 15.2l2.4 2.3 4.6-4.6"/></svg><span class="l">Today</span><i id="cnt"></i></button><button data-t="all"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h11a3 3 0 0 1 3 3V20H8a3 3 0 0 1-3-3V4.5z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg><span class="l">Register</span></button><button data-t="add"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="l">New</span></button></nav>
 <div class="warnb" id="warn" hidden></div>
 <div id="view"></div></main>
-<button class="fab" id="bkb" aria-label="Backup and Restore" title="Backup and Restore"></button>
 <div id="modal"></div><div class="toast" id="toast"></div>
 <script>
 const STEPS=[[1,"Morning Warm-up & Rule Audit"],[3,"Active Recall & 5 Speed-Drill Questions"],[7,"Error Notebook & Core Formula Check"],[15,"Mixed PYQ Challenge"],[30,"Mastery Consolidation & Exam-Level Test"]];
@@ -610,7 +612,7 @@ const ACC=["","#7c3aed","#1f8a4c","#ea580c","#db2777","#0d9488"];
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const load=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
-const store=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+var CL;const store=(k,v)=>{let ok=1;try{localStorage.setItem(k,JSON.stringify(v))}catch(e){ok=0}if(ok&&CL)CL.mark(k)};
 const iso=d=>{const x=new Date(d);return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0")};
 let T=iso(new Date());
 const addD=(s,n)=>{const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return iso(d)};
@@ -623,7 +625,7 @@ if(!Array.isArray(S.subjects))S.subjects=DEF.slice();
 let NOSTORE=false;try{localStorage.setItem("_t","1");localStorage.removeItem("_t")}catch(e){NOSTORE=true}
 if(NOSTORE){$("warn").hidden=false;$("warn").textContent="⚠ This browser is blocking storage, so entries will be lost when you close the page. Use the backup button to export your data."}
 let LB="";try{LB=localStorage.getItem("recap_bk")||""}catch(e){}
-let tab="due",open=null,lastTick="",animIn=true,q="",flt="all",fo="",fpush=false;
+let tab="due",open=null,lastTick="",animIn=true,q="",flt="all",rvf="all",tf="all",fo="",fpush=false;
 const save=()=>store("recap_v1",E),saveS=()=>store("recap_set",S);
 
 function applyPrefs(){const d=document.documentElement,dark=S.theme==="dark"||(S.theme==="auto"&&matchMedia("(prefers-color-scheme:dark)").matches);
@@ -684,15 +686,33 @@ function badge(){const n=E.filter(e=>pend(e).length||wk(e)).length,c=$("cnt"),bb
  document.title=(S.badge&&n?"("+n+") ":"")+"Recapitulate – Revision Register";
  try{if(S.badge&&n&&navigator.setAppBadge)navigator.setAppBadge(n);else if(navigator.clearAppBadge)navigator.clearAppBadge()}catch(e){}}
 function getList(){return E.filter(e=>pend(e).length||wk(e)).sort((a,b)=>nextDue(a).localeCompare(nextDue(b)))}
-const regList=()=>{let l=E.filter(e=>S.showDone||!fin(e));if(flt==="act")l=l.filter(e=>!fin(e));if(flt==="done")l=l.filter(fin);return l};
+const dueAt=(e,f)=>STEPS.some(([d],i)=>!e.done[i]&&f(diff(addD(e.date,d),T)));
+const addedT=e=>(e.created||e.date)===T;
+const RVF={added:addedT,today:e=>pend(e).length>0||!!wk(e),yest:e=>e.done.some((v,i)=>v&&e.at&&e.at[i]===addD(T,-1)),tom:e=>dueAt(e,n=>n===1)};
+const RVL={added:"Added today",today:"Due today",yest:"Revised yesterday",tom:"Due tomorrow"};
+const TFF={due:e=>dueAt(e,n=>n===0)||!!wk(e),od:e=>dueAt(e,n=>n<0)};
+const regList=()=>{let l=E.filter(e=>S.showDone||!fin(e));if(flt==="act")l=l.filter(e=>!fin(e));if(flt==="done")l=l.filter(fin);if(rvf!=="all")l=l.filter(RVF[rvf]);return l};
+function addedHtml(){const L=E.filter(addedT);
+ return `<div class="dnw"><div class="dnh"><b>Added today</b><span>${L.length}</span></div>`+(L.length?L.map((e,n)=>`<div class="dni" style="--sc:${subjColor(e.subject)}"><span class="dno">${n+1}</span><div><b>${esc(e.subject)}</b> <span class="st">| ${esc(e.subs)}</span><small>Studied: ${e.date}</small></div></div>`).join(""):`<div class="empty" style="padding:14px 12px">Nothing added yet today.</div>`)+`</div>`}
+const toks=t=>new Set(norm(t).split(/[^a-z0-9]+/).filter(w=>w.length>2));
+function similar(sj,sb,skip){const a=toks(sb),ns=norm(sb);if(!sj||!a.size)return[];
+ return E.filter(x=>x.id!==skip&&norm(x.subject)===norm(sj)).filter(x=>{const nx=norm(x.subs);if(nx===ns)return false;if(nx.includes(ns)||ns.includes(nx))return true;const b=toks(x.subs);if(!b.size)return false;let c=0;a.forEach(w=>{if(b.has(w))c++});return c/(a.size+b.size-c)>=.5})}
+function bindSim(skip){const f=()=>{const sj=($("fj").value==="__o"?$("fo").value:$("fj").value).trim(),m=similar(sj,$("fs").value,skip).slice(0,3),el=$("sim");if(!el)return;
+  el.classList.toggle("on",m.length>0);el.innerHTML=m.length?`<b>⚠ Looks similar to what you already have:</b>`+m.map(x=>`${esc(x.subject)} | ${esc(x.subs)} <small>(${addedT(x)?"added today":"studied "+x.date})</small>`).join("<br>"):""};
+ ["fj","fs","fo"].forEach(id=>$(id).addEventListener(id==="fj"?"change":"input",f))}
+function doneRecent(){const now=Date.now(),L=[];E.forEach(e=>e.done.forEach((v,i)=>{if(!v)return;let t=e.ts&&e.ts[i]||0,k=!!t;if(t){if(now-t>864e5)return}else{if(!(e.at&&e.at[i]===T))return;t=new Date(T+"T00:00:00").getTime()+i}L.push({e,i,t,k})}));return L.sort((a,b)=>a.t-b.t)}
+function doneHtml(){const L=doneRecent();if(!L.length)return"";
+ return `<div class="dnw"><div class="dnh"><b>Completed in the last 24 hours</b><span>${L.length}</span></div>`+L.map((o,n)=>{const d=new Date(o.t),tm=o.k?" · "+(iso(d)===T?"":"yesterday ")+d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"}):"";
+  return `<div class="dni" style="--sc:${subjColor(o.e.subject)}"><span class="dno">${n+1}</span><div><b>${esc(o.e.subject)}</b> <span class="st">| ${esc(o.e.subs)}</span><small>+${STEPS[o.i][0]}d ${esc(STEPS[o.i][1])}${tm}</small></div></div>`}).join("")+`</div>`}
 const sortEntries=l=>{const so=S.sort;l=[...l].sort((a,b)=>so==="due"?nextDue(a).localeCompare(nextDue(b)):so==="az"?a.subject.localeCompare(b.subject)||a.subs.localeCompare(b.subs):0);if(so==="new")l.reverse();return l};
 const fgFor=c=>{const h=String(c);if(h[0]!=="#")return"#fff";const n=parseInt(h.slice(1),16);return(.299*(n>>16)+.587*(n>>8&255)+.114*(n&255))>150?"#1f2328":"#fff"};
 const BACK='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
 const FOLD='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="currentColor"/></svg>';
 function fillList(){
  if(tab==="all"){fillRegister();return}
- const l=getList(),emp=!E.length?`<div class="empty"><b>📒</b>Welcome! Log what you studied today and Recapitulate will schedule every revision for you.<br><br><button data-go="add">+ Create your first register</button></div>`:`<div class="empty">${ic("conf","big")}You're all caught up. Nothing due today.</div>`;
- $("lst").innerHTML=l.length?l.map(e=>card(e,true)).join(""):emp}
+ const l=getList().filter(e=>tf==="all"||TFF[tf](e)),emp=!E.length?`<div class="empty"><b>📒</b>Welcome! Log what you studied today and Recapitulate will schedule every revision for you.<br><br><button data-go="add">+ Create your first register</button></div>`:`<div class="empty">${ic("conf","big")}You're all caught up. Nothing due today.</div>`;
+ $("lst").innerHTML=l.length?l.map(e=>card(e,true)).join(""):(E.length&&tf!=="all"?`<div class="empty">Nothing ${tf==="od"?"overdue":"due today"}.</div>`:emp);
+ if($("dn"))$("dn").innerHTML=doneHtml()}
 function foldersOf(es){const g=new Map();es.forEach(e=>{const key=norm(e.subject),o=g.get(key)||{key,name:e.subject,es:[],idx:0};o.es.push(e);o.idx=Math.max(o.idx,E.indexOf(e));g.set(key,o)});
  const so=S.sort,fs=[...g.values()].sort((a,b)=>so==="az"?a.name.localeCompare(b.name):so==="due"?a.es.map(nextDue).sort()[0].localeCompare(b.es.map(nextDue).sort()[0]):b.idx-a.idx);
  return[...fs.filter(f=>S.pins[f.key]),...fs.filter(f=>!S.pins[f.key])]}
@@ -706,7 +726,7 @@ function fillRegister(){
  if(fo){const name=subjName(fo),col=subjColor(name),tot=E.filter(e=>norm(e.subject)===fo).length;let l=all.filter(e=>norm(e.subject)===fo);if(k)l=l.filter(mt);l=sortEntries(l);
   L.innerHTML=`<div class="crumb"><button class="ib back" data-back="1" aria-label="Back to folders" title="Back">${BACK}</button><span class="cf" style="color:${col}">${FOLD}</span><div class="cn"><b>${esc(name)}</b><small>${tot} register${tot===1?"":"s"}</small></div></div>`+(l.length?l.map(e=>card(e,false)).join(""):none("No registers match."))}
  else{const fs=foldersOf(all),nAll=foldersOf(E).length,cp=S.fview==="compact"||(S.fview!=="large"&&nAll>12);
-  if(k){const mf=fs.filter(f=>f.name.toLowerCase().includes(k)),l=sortEntries(all.filter(mt));
+  if(k||rvf!=="all"){const mf=k?fs.filter(f=>f.name.toLowerCase().includes(k)):[],l=sortEntries(all.filter(mt));
    L.innerHTML=((mf.length?`<div class="fsec">Folders</div>`+tiles(mf,cp):"")+(l.length?`<div class="fsec">${plural(l.length,"register")}</div>`+l.map(e=>card(e,false)).join(""):""))||none("No registers match.")}
   else if(!fs.length)L.innerHTML=none("No registers match.");
   else{const pin=fs.filter(f=>S.pins[f.key]),rest=fs.filter(f=>!S.pins[f.key]);
@@ -744,21 +764,22 @@ function dupeErr(d,btn){$("fe").textContent=`Already in your register: ${d.subje
 const FUN='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></svg>';
 const subjName=k=>{const e=E.find(x=>norm(x.subject)===k);return e?e.subject:k};
 function afl(){const el=$("afl"),fb=$("fb"),bt=$("fbtn");if(!el)return;
- const A=[];if(flt!=="all")A.push(`<button data-x="f">${flt==="act"?"Active":"Completed"}<b>✕</b></button>`);
+ const A=[];if(flt!=="all")A.push(`<button data-x="f">${flt==="act"?"Active":"Completed"}<b>✕</b></button>`);if(rvf!=="all")A.push(`<button data-x="r">${RVL[rvf]}<b>✕</b></button>`);
  el.innerHTML=A.join("");el.style.display=A.length?"flex":"none";
  fb.textContent=A.length;fb.style.display=A.length?"block":"none";bt.classList.toggle("on",!!A.length)}
 function filters(){
  const ov=sheet(`<h3>Filters</h3>
  <h4 class="fh">Status</h4><div class="chips fc">${[["all","All"],["act","Active"],["done","Completed"]].map(([k,l])=>`<button data-f="${k}" class="${flt===k?"on":""}">${l}</button>`).join("")}</div>
+ <h4 class="fh">Revision</h4><div class="chips fc">${[["all","All"],["added","Added today"],["today","Due today"],["yest","Revised yesterday"],["tom","Due tomorrow"]].map(([k,l])=>`<button data-r="${k}" class="${rvf===k?"on":""}">${l}</button>`).join("")}</div>
  <div class="r2" style="margin-top:16px"><button class="g" id="fclr">Clear</button><button id="fok"></button></div>`);
  const upd=()=>{fillList();const n=regList().length;$("fok").textContent="Show "+n+" register"+(n===1?"":"s")};upd();
  ov.addEventListener("click",ev=>{const b=ev.target.closest("button");if(!b)return;
-  if(b.dataset.f!=null)flt=b.dataset.f;else if(b.id==="fclr")flt="all";else if(b.id==="fok"){closeM();return}else return;
-  ov.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x.dataset.f===flt));upd()})}
+  if(b.dataset.f!=null)flt=b.dataset.f;else if(b.dataset.r!=null)rvf=b.dataset.r;else if(b.id==="fclr"){flt="all";rvf="all"}else if(b.id==="fok"){closeM();return}else return;
+  ov.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x.dataset.f===flt));ov.querySelectorAll("[data-r]").forEach(x=>x.classList.toggle("on",x.dataset.r===rvf));upd()})}
 function render(){
  $("tabs").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.t===tab));badge();moveInd();
  const v=$("view");v.className=animIn?"enter":"";animIn=false;
- if(tab==="add"){v.innerHTML=`<div class="card"><h2>Log a study session</h2>${fields(addPre?{subject:addPre}:undefined)}<button class="w go" id="go"><span class="lbl">Create register entry</span><svg class="arw" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></button></div>`;addPre="";bindF();
+ if(tab==="add"){v.innerHTML=`<div class="card"><h2>Log a study session</h2>${fields(addPre?{subject:addPre}:undefined)}<div class="simw" id="sim"></div><button class="w go" id="go"><span class="lbl">Create register entry</span><svg class="arw" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></button></div>${addedHtml()}`;addPre="";bindF();bindSim();
   $("go").onclick=()=>{const b=$("go");if(b.classList.contains("fly"))return;const r=readF();if(!r)return;
    const d=dupe(r);if(d){dupeErr(d,b);return}
    E.push({id:uid(),...r,created:T,done:[0,0,0,0,0]});save();
@@ -766,7 +787,7 @@ function render(){
    const wait=S.anim&&!matchMedia("(prefers-reduced-motion:reduce)").matches?1000:250;
    setTimeout(()=>{tab="all";fo=norm(r.subject);animIn=true;toast("Register created ✔");render()},wait)};return}
  if(tab==="due"){const od=E.reduce((a,e)=>a+pend(e).filter(i=>diff(addD(e.date,STEPS[i][0]),T)<0).length,0),dt=E.reduce((a,e)=>a+pend(e).filter(i=>diff(addD(e.date,STEPS[i][0]),T)===0).length,0);
-  v.innerHTML=`<div class="stats"><div class="stat w"><b>${dt}</b><span>Due today</span></div><div class="stat r"><b>${od}</b><span>Overdue</span></div><div class="stat g"><b>${E.filter(fin).length}</b><span>Completed</span></div></div><div id="lst"></div>`}
+  v.innerHTML=`<div class="stats"><div class="stat w"><b>${dt}</b><span>Due today</span></div><div class="stat r"><b>${od}</b><span>Overdue</span></div><div class="stat g"><b>${doneRecent().length}</b><span>Done (of ${doneRecent().length+od+dt})</span></div></div><div class="chips tfc fc" id="tfc">${[["all","All"],["due","Due today"],["od","Overdue"]].map(([k,l])=>`<button data-tf="${k}" class="${tf===k?"on":""}">${l}</button>`).join("")}</div><div id="lst"></div><div id="dn"></div>`}
  else v.innerHTML=`<div class="sbar"><div class="srch">${ic("sr")}<input id="q" type="search" placeholder="Search subject or sub-topic" value="${esc(q)}"></div><button class="ib fbtn" id="fbtn" aria-label="Filters" title="Filters">${FUN}<i id="fb"></i></button></div><div class="afl" id="afl"></div><div id="lst"></div>`;
  if($("fbtn"))$("fbtn").onclick=filters;fillList()}
 
@@ -775,7 +796,7 @@ const view=$("view");
 view.addEventListener("input",ev=>{if(ev.target.id==="q"){q=ev.target.value;fillList()}});
 view.addEventListener("change",ev=>{const c=ev.target;if(c.type!=="checkbox")return;const e=E.find(x=>x.id===c.dataset.id);if(!e)return;
  if(c.checked&&diff(c.dataset.unlock,T)>0){c.checked=false;return}
- const on=c.checked,ix=+c.dataset.i;e.done[ix]=on?1:0;e.at=e.at||[0,0,0,0,0];e.ah=e.ah||[-1,-1,-1,-1,-1];e.at[ix]=on?T:0;e.ah[ix]=on?new Date().getHours():-1;lastTick=c.dataset.id+":"+ix;const rc=c.getBoundingClientRect();save();if(on)gameSession(e,ix,rc);
+ const on=c.checked,ix=+c.dataset.i;e.done[ix]=on?1:0;e.at=e.at||[0,0,0,0,0];e.ah=e.ah||[-1,-1,-1,-1,-1];e.at[ix]=on?T:0;e.ah[ix]=on?new Date().getHours():-1;e.ts=e.ts||[0,0,0,0,0];e.ts[ix]=on?Date.now():0;lastTick=c.dataset.id+":"+ix;const rc=c.getBoundingClientRect();save();if(on)gameSession(e,ix,rc);
  if(tab==="due")render();else{fillList();badge()}lastTick="";
  if(on&&S.rate)rate(e,ix)});
 view.addEventListener("dblclick",ev=>{const b=ev.target.closest&&ev.target.closest("[data-fo]");if(b){try{getSelection().removeAllRanges()}catch(e){}openFolder(b.dataset.fo)}});
@@ -882,7 +903,8 @@ view.addEventListener("click",ev=>{const t=ev.target,g=a=>t.closest("["+a+"]");l
  const lk=t.closest&&t.closest("input.lk");if(lk){ev.preventDefault();toast("This revision unlocks on "+lk.dataset.unlock);lk.classList.remove("shake");void lk.offsetWidth;lk.classList.add("shake");return}
  if(b=g("data-menu"))openMenu(b);
 
- else if(b=g("data-x")){flt="all";fillList()}
+ else if(b=g("data-x")){if(b.dataset.x==="r")rvf="all";else flt="all";fillList()}
+ else if(b=g("data-tf")){tf=b.dataset.tf;$("tfc").querySelectorAll("[data-tf]").forEach(x=>x.classList.toggle("on",x.dataset.tf===tf));fillList()}
  else if(b=g("data-fo"))fldClick(ev,b)
  else if(b=g("data-back"))closeFolder()
  else if(b=g("data-rev")){open=open===b.dataset.rev?null:b.dataset.rev;fillList()}
@@ -957,7 +979,7 @@ function delAsk(id){const e=E.find(x=>x.id===id);
  sheet(`<div class="ic">⚠️</div><h3>Delete this register?</h3><p><b>${esc(e.subject)}</b> – ${esc(e.subs)}<br>All revision checkpoints and progress will be permanently lost. This cannot be undone.</p><div class="r2"><button class="g" id="no">Keep it</button><button class="red" id="yes">Yes, delete</button></div>`,"c");
  $("no").onclick=closeM;$("yes").onclick=()=>{const ix=E.findIndex(x=>x.id===id),del=E[ix];E.splice(ix,1);save();closeM();render();toast("Register deleted",()=>{E.splice(Math.min(ix,E.length),0,del);save();render();toast("Restored ✔")})}}
 function edit(id){const e=E.find(x=>x.id===id);
- sheet(`<h3>Edit register</h3>${fields(e)}<div class="r2"><button class="g" id="no">Cancel</button><button id="sv">Save changes</button></div>`);bindF();
+ sheet(`<h3>Edit register</h3>${fields(e)}<div class="simw" id="sim"></div><div class="r2"><button class="g" id="no">Cancel</button><button id="sv">Save changes</button></div>`);bindF();bindSim(e.id);
  $("no").onclick=closeM;$("sv").onclick=()=>{const r=readF();if(!r)return;const d=dupe(r,e.id);if(d){dupeErr(d,$("sv"));return}Object.assign(e,r);save();closeM();render();toast("Changes saved ✔")}}
 
 /* ---- Backup & Restore ---- */
@@ -997,7 +1019,44 @@ function backup(){
  $("bfi").onchange=ev=>{const f=ev.target.files[0];ev.target.value="";if(!f)return;say("Reading file…");const fr=new FileReader();fr.onload=()=>{const[ok,m]=imp(fr.result);say(m,ok?"ok":"bad")};fr.onerror=()=>say("Couldn't read that file.","bad");fr.readAsText(f)};
  $("bcp").onclick=()=>{try{navigator.clipboard.writeText(payload());say("Backup text copied. Paste it into a notes app or message to yourself.","ok")}catch(e){ta.value=payload();ta.select();say("Select all and copy this text manually.")}};
  $("brs").onclick=()=>{const[ok,m]=imp(ta.value);say(m,ok?"ok":"bad")}}
-$("bkb").innerHTML=ic("bk");$("bkb").onclick=backup;
+
+/* ---- Google sign-in + cloud backup (Firebase Auth + Firestore) ---- */
+const FIREBASE_CONFIG={apiKey:"",authDomain:"",projectId:"",appId:""};
+CL=(()=>{const C=FIREBASE_CONFIG,on=!!(C.apiKey&&C.authDomain&&C.projectId&&C.appId),U="https://www.gstatic.com/firebasejs/10.12.2/",KEYS=["recap_v1","recap_set","recap_game"],st={user:null,msg:"",busy:false};
+ let M=null,tm=0,last=0;
+ const lg=k=>{try{return localStorage.getItem(k)}catch(e){return null}},ls=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},lr=k=>{try{localStorage.removeItem(k)}catch(e){}};
+ const mods=async()=>{if(M)return M;const[a,b,c]=await Promise.all([import(U+"firebase-app.js"),import(U+"firebase-auth.js"),import(U+"firebase-firestore.js")]),app=a.initializeApp(C);return M={b,c,auth:b.getAuth(app),db:c.getFirestore(app)}};
+ const ref=(m,u)=>m.c.doc(m.db,"users",u.uid),snap=()=>JSON.stringify({v:1,E,S,G}),hasLocal=()=>E.length>0;
+ const inner=()=>!on?`<p class="sub">Google sign-in isn't set up yet. Add your Firebase config at the top of this script (see README).</p>`
+  :(st.user?`<p class="sub" style="margin:0 0 10px">Signed in as <b>${esc(st.user.email||"your Google account")}</b>. Your register is saved to your account and restores on any device.</p><div class="r2"><button class="g" id="csn">⟳ Sync now</button><button class="g" id="cso">Sign out</button></div>`
+  :`<p class="sub" style="margin:0 0 10px">Sign in with Google to keep your register safe and use it on any device.</p><button class="w" id="csi">Sign in with Google</button>`)+`<p class="sub" id="cmsg" style="margin:8px 0 0">${esc(st.msg)}</p>`;
+ const ui=m=>{if(m!=null)st.msg=m;const b=$("cbox");if(b)b.innerHTML="<h4>Google cloud backup</h4>"+inner()};
+ const stamp=()=>ui("Synced ✔ "+new Date().toLocaleTimeString([],{hour:"numeric",minute:"2-digit"}));
+ async function push(){const u=st.user;if(!u)return;const dv=lg("recap_cdirty"),data=snap();if(data.length>9e5){ui("Too large to sync (over 900 KB). Use Export backup as well.");return}
+  const m=await mods(),upd=Date.now();await m.c.setDoc(ref(m,u),{data,updated:upd,v:1});ls("recap_cts",u.uid+":"+upd);if(lg("recap_cdirty")===dv)lr("recap_cdirty");stamp()}
+ function merge(c){const key=x=>norm(x.subject)+"|"+norm(x.subs);(Array.isArray(c.E)?c.E:[]).forEach(x=>{if(!x||!x.subject||!Array.isArray(x.done))return;const y=E.find(z=>z.id===x.id||key(z)===key(x));if(!y){E.push(x);return}
+   for(let i=0;i<5;i++)if(x.done[i]&&!y.done[i]){y.done[i]=1;["at","ah","ts"].forEach(f=>{if(x[f]){y[f]=y[f]||[0,0,0,0,0];y[f][i]=x[f][i]}})}
+   if(!y.note&&x.note)["note","ns","seal","pred","sopen","nat"].forEach(f=>{if(x[f]!=null)y[f]=x[f]})});
+  if(c.S&&Array.isArray(c.S.subjects))c.S.subjects.forEach(x=>{if(!S.subjects.includes(x))S.subjects.push(x)});
+  if(c.G&&(!G||(c.G.xp||0)>(G.xp||0))){G=c.G;gsave()}
+  save();saveS();render()}
+ function apply(d,c,auto){if(auto&&(tab==="add"||$("modal").innerHTML.trim())){ui("Newer data found in the cloud. Tap Sync now when you're ready.");return}
+  ls("recap_v1",JSON.stringify(c.E));if(c.S)ls("recap_set",JSON.stringify(c.S));if(c.G)ls("recap_game",JSON.stringify(c.G));ls("recap_cts",st.user.uid+":"+d.updated);lr("recap_cdirty");location.reload()}
+ async function sync(manual){const u=st.user;if(!u||st.busy)return;st.busy=true;last=Date.now();ui("Syncing…");
+  try{const m=await mods(),s=await m.c.getDoc(ref(m,u)),cts=lg("recap_cts")||"",linked=cts.startsWith(u.uid+":"),dirty=lg("recap_cdirty")!==null||(!linked&&hasLocal());
+   if(!s.exists()){if(hasLocal())await push();else stamp()}
+   else{const d=s.data();let c;try{c=JSON.parse(d.data)}catch(e){c=null}if(!c||!Array.isArray(c.E))throw new Error("Cloud copy is unreadable");
+    if(cts!==u.uid+":"+d.updated){if(!hasLocal()||(linked&&!dirty))apply(d,c,!manual);else{merge(c);await push();toast("Merged with your cloud copy ✔")}}
+    else if(dirty)await push();else stamp()}
+  }catch(e){ui("Sync failed: "+(e.code||e.message||"offline"))}finally{st.busy=false}}
+ async function signIn(){try{ui("Opening Google…");const m=await mods();await m.b.signInWithPopup(m.auth,new m.b.GoogleAuthProvider())}catch(e){ui(e.code==="auth/popup-blocked"?"Pop-up blocked. Allow pop-ups for this site and try again.":e.code==="auth/unauthorized-domain"?"This website isn't authorised in Firebase (see README step 5).":"Sign-in failed: "+(e.code||e.message))}}
+ async function signOut(){try{const m=await mods();await m.b.signOut(m.auth)}catch(e){}lr("recap_cuser");lr("recap_cts");st.user=null;ui("Signed out. Your data stays on this device.")}
+ async function init(){if(!on||!lg("recap_cuser"))return;try{const m=await mods();m.b.onAuthStateChanged(m.auth,u=>{st.user=u;ui("");if(u)sync()})}catch(e){}}
+ async function boot(){if(!on)return;try{const m=await mods();m.b.onAuthStateChanged(m.auth,u=>{st.user=u;if(u){ls("recap_cuser",u.email||"1");ui("");sync()}else ui()})}catch(e){ui("Couldn't load Google sign-in (offline?)")}}
+ document.addEventListener("visibilitychange",()=>{if(!st.user)return;if(document.hidden){if(tm){clearTimeout(tm);tm=0;push().catch(()=>{})}}else if(Date.now()-last>15000)sync()});
+ setTimeout(init,600);
+ return{on,html:()=>`<div class="sec" id="cbox"><h4>Google cloud backup</h4>${inner()}</div>`,ui,mark(k){if(!on||!KEYS.includes(k))return;ls("recap_cdirty",Date.now()+""+Math.random());if(st.user){clearTimeout(tm);tm=setTimeout(()=>{tm=0;push().catch(e=>ui("Sync failed: "+(e.code||e.message)))},3000)}},
+  signIn:async()=>{await signIn();boot()},signOut,sync,user:()=>st.user}})();
 
 /* ---- Settings ---- */
 function subList(){$("sbl").innerHTML=S.subjects.map((x,i)=>{const c=subjColor(x);return `<span><label class="cd" style="background:${c}" title="Change colour"><input type="color" data-sk="${i}" value="${toHex(c)}"></label>${esc(x)}<button data-rs="${i}" aria-label="Remove">✕</button></span>`}).join("")||'<small class="sub">No subjects. Add one below.</small>'}
@@ -1022,6 +1081,7 @@ function settings(){
  <p class="sub" style="margin:10px 0 0">${NS?"":"This browser doesn't support notifications. "}Reminders appear while Recapitulate is open or running in the background. For alerts that also work when the app is closed, add your revisions to your calendar.</p></div>
  <div class="sec"><h4>Gestures</h4><button class="g w" id="gsb" style="margin-bottom:10px">Gestures &amp; shortcuts…</button></div>
  <div class="sec"><h4>Subjects</h4><div class="pl" id="sbl"></div><div class="r2"><input id="nsb" placeholder="Add a subject"><button id="asb" style="flex:0 0 auto;margin-bottom:10px">Add</button></div><button class="g s" id="rsb">Reset to default list</button></div>
+ ${CL.html()}
  <div class="sec"><h4>Data</h4><div class="r2"><button class="g" id="sbk">${ic("bk")}Backup &amp; Restore</button><button class="ro" id="sdl">${ic("tr")}Delete all data</button></div></div>
  <button class="w" id="cl" style="margin-top:14px">Done</button>`);
  subList();
@@ -1032,7 +1092,7 @@ function settings(){
   else if(b.dataset.rs!=null){S.subjects.splice(+b.dataset.rs,1);subList();saveS()}
   else if(b.id==="asb")addSub();
   else if(b.id==="rsb"){S.subjects=DEF.slice();subList();saveS()}
-  else if(b.id==="sbk")backup();else if(b.id==="cl")closeM();else if(b.id==="sdl")wipe()});
+  else if(b.id==="sbk")backup();else if(b.id==="csi")CL.signIn();else if(b.id==="cso")CL.signOut();else if(b.id==="csn")CL.sync(true);else if(b.id==="cl")closeM();else if(b.id==="sdl")wipe()});
  $("nsb").onkeydown=e=>{if(e.key==="Enter")addSub()};
  ov.addEventListener("change",ev=>{const k=ev.target.dataset&&ev.target.dataset.bo;if(k){S[k]=ev.target.checked;saveS();render()}});
  $("tan").onchange=e=>{S.anim=e.target.checked;saveS();applyPrefs()};
@@ -1050,7 +1110,7 @@ function settings(){
  $("nbd").onchange=e=>{S.badge=e.target.checked;saveS();badge()};
  $("ntest").onclick=async()=>{if(!await askPerm())return;const t=notifText();toast(await notify(t?t.title:"Recapitulate",t?t.body:"Test notification. You're all caught up!")?"Test sent":"Couldn't show the notification")};
  $("nics").onclick=async()=>{const[n,txt]=buildICS();if(!n){toast("No upcoming revisions to add");return}const r=await dl("recapitulate-revisions.ics",txt,"text/calendar");toast(r==="ok"?n+" reminders ready. Open the file to add them to your calendar":r==="declined"?"Download cancelled":"Download blocked by this browser")}}
-function wipe(){sheet(`${ic("tr","big")}<h3>Delete all data?</h3><p>All ${E.length} register${E.length===1?"":"s"} will be permanently removed from this browser. Export a backup first if you might need them.</p><div class="r2"><button class="g" id="no">Cancel</button><button class="red" id="yes">Delete everything</button></div>`,"c");
+function wipe(){sheet(`${ic("tr","big")}<h3>Delete all data?</h3><p>All ${E.length} register${E.length===1?"":"s"} will be permanently removed from this browser${CL.user()?" and from your Google cloud copy":""}. Export a backup first if you might need them.</p><div class="r2"><button class="g" id="no">Cancel</button><button class="red" id="yes">Delete everything</button></div>`,"c");
  $("no").onclick=closeM;$("yes").onclick=()=>{E=[];save();closeM();render();toast("All data deleted")}}
 $("gear").onclick=settings;
 
@@ -1466,7 +1526,7 @@ function mastOpen(){let o=$("pfh");if(!o){o=document.createElement("div");o.id="
  o.innerHTML=`<div class="cgp pfp"><div class="cgh"><button class="ib" data-mx="1" aria-label="Back">${BACK}</button><b>Calc mastery</b><span class="cgxp">${tiers} rank${tiers===1?"":"s"}</span></div>
  <div class="pkg"><div class="pk"><small>Correct answers</small><b>${tot.toLocaleString()}</b><i>all operations, all time</i></div><div class="pk"><small>Next rank</small><b>${nx?nx.need.toLocaleString():"-"}</b><i>${nx?"more "+esc(OPI[nx.op][0])+" to "+nx.name:"all ranks earned"}</i></div></div>
  <div class="pcd"><h4>How it works</h4><p class="sub" style="margin:0">Every correct answer counts toward its own operation. Ranks unlock at ${MT.map(x=>x.toLocaleString()).join(", ")} correct answers. Each rank gives bonus XP, a surprise, and +5% XP on that operation, permanently. Small milestones at ${MS.join(", ")} give a quick XP boost.</p></div>
- <h4 class="fh">Basic</h4><div class="mgrid">${OPS.map(card).join("")}</div><h4 class="fh">Booster maths</h4><div class="mgrid">${SSCO.map(card).join("")}</div></div>`;o.scrollTop=0}
+ <h4 class="fh">Basic</h4><div class="mgrid">${OPS.map(card).join("")}</div><h4 class="fh">SSC speed maths</h4><div class="mgrid">${SSCO.map(card).join("")}</div></div>`;o.scrollTop=0}
 function mastClick(ev){const b=ev.target.closest("[data-mx],[data-mp]");if(!b)return;if(b.dataset.mx){perfClose(true);return}const op=b.dataset.mp;perfClose();CF=Object.assign(CF,G.p.cfg||{});CF.ops=[op];G.p.cfg=CF;gsave();calcHome()}
 
 /* ---------- weakness heatmap ---------- */
@@ -1659,7 +1719,7 @@ function calcHome(){settleStreak();cfFix();const used=CAP-capLeft(),hard=G.u.har
  <button class="cgm" id="cgm"><span>${gl("medal",24)}</span><div><b>Calc mastery</b><small>${tiers} rank${tiers===1?"":"s"} earned${nx?" · "+nx.need.toLocaleString()+" more "+esc(OPI[nx.op][0])+" to "+nx.name:""}</small></div><i>›</i></button>
  <h4 class="fh">Mode</h4><div class="cgmode">${MODES.map(([k,n,d,g])=>`<button data-md="${k}" class="${CF.mode===k?"on":""}">${gl(g,22)}<b>${n}</b><small>${d}</small></button>`).join("")}</div><div style="margin-top:10px">${opts}</div>
  <h4 class="fh">Difficulty (number size)</h4><div class="cgpair" id="cp">${PAIRS.map((p,i)=>`<button data-pi="${i}" class="${CF.pi===i?"on":""}">${p[0]} · ${p[1]}</button>`).join("")}</div><p class="sub cgex">Example: <b>${esc(ex)}</b></p>
- <h4 class="fh">Operations <small class="cgsel">${CF.ops.length} selected</small></h4><div class="cgpre"><button data-pre="basic">Basics</button><button data-pre="ssc">Booster</button><button data-pre="all">Everything</button><button data-pre="rand">Surprise</button></div>
+ <h4 class="fh">Operations <small class="cgsel">${CF.ops.length} selected</small></h4><div class="cgpre"><button data-pre="basic">Basics</button><button data-pre="ssc">SSC speed</button><button data-pre="all">Everything</button><button data-pre="rand">Surprise</button></div>
  ${GRP.map(([n,l],gi)=>`<div class="cgopl"><span>${n}</span><button class="lnk" data-grp="${gi}">${l.every(x=>CF.ops.includes(x))?"Clear":"Select all"}</button></div><div class="cgopg">${l.map(opBtn).join("")}</div>`).join("")}
  <p class="sub" style="margin:12px 2px 0">${tm}<br>Hints available: ${G.hint}</p>
  <div class="cgbar"><button class="w big cgstart" id="cgs">Start · ${CF.ops.length} operation${CF.ops.length===1?"":"s"} · ${sum}</button></div>`);
