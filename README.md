@@ -48,6 +48,17 @@ Without cloud backup, entries live in the browser you use. Clearing browser data
 - Register tab = folders: each subject is a folder tile (coloured, with a register count, due badge and progress bar). Double-click a folder on a computer, or tap it on a phone, to open the registers inside. Use ← or your phone's Back button to return. The search box searches every folder; a filter icon next to it filters by status (All / Active / Completed)
 - Fading ink: folders and cards slowly lose their colour the longer revisions are overdue, and regain it as you catch up (switch off in Settings → Preferences)
 - Time-capsule notes: when writing a note you can seal it until a later checkpoint and predict how well you'll recall it. A 💌 appears when it is ready, and when you rate that checkpoint the app compares your prediction with the result
+- **Levels 1–30**: progression now runs to level 30 (Eternal Recapitulator). New unlocks include extra shield capacity, forecast tools, advanced streak stats, Phoenix streak restore, and a prestige seal.
+- **Analytics tab** (bottom nav, next to New): full study dashboard (overview, subjects, habits, forecast, calc) plus a **Flags** panel that lists every flagged register and explains what each flag does. Performance was moved here from Profile → Tools.
+- **Flag behaviour**: Priority / Focus / Weak rise in Today and grant XP bonuses on ticks; Strong softens XP; Pause & Reference leave the due schedule and block early ticks until cleared.
+- **Flags** (tiny emoji + optional annotation): set on any register or folder via the ⋮ / right-click menu → *Set flag*. Six flags with built-in logic:
+  - 🚩 **Priority** — floats to the top of Today and due lists
+  - 🟠 **Weak** — always treated as a weak spot (extra attention)
+  - 🎯 **Focus** — current focus; high visual priority
+  - 🟢 **Strong** — lower priority in due lists
+  - 📘 **Reference** — keep for reference, low urgency
+  - ⏸️ **Paused** — completely ignored for due dates, Today tab, badges and notifications (still visible in Register)
+  Folder flags appear on the folder tile and also affect its registers for pause/weak/priority sorting. Annotation is a short optional note shown on hover.
 - Sticky notes: ⋮ menu → Add note. Pick one of 8 paper styles (post-it, lined, grid, kraft, pinned...). A small note icon appears on the card; tap it to pop the note up, and tap anywhere to close it. Notes are included in backups
 - Each subject gets its own colour on top of its cards (change it in Settings → Subjects)
 - A checkpoint (+3d, +7d, ...) is locked until its day arrives, so you can't tick revisions early
